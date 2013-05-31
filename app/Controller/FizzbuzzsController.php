@@ -6,6 +6,17 @@ class FizzbuzzsController extends AppController {
 
 	var $uses = array();
 
+	private $current_user;
+
+	public function beforeFilter() {
+	    parent::beforeFilter();
+	    $this->Auth->allow('test');
+	}
+
+	public function isAuthorized($user) {
+		return true;
+	}
+
 	private function _answer($number,$answer) {
 		if($number % 3 == 0 && $number % 5 == 0) {
 			$correct = 'FizzBuzz';

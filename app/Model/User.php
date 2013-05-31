@@ -6,7 +6,6 @@ App::uses('AuthComponent', 'Controller/Component');
 
 class User extends AppModel {
 
-	// This is the method that hashes the user password with sha1
 	public function beforeSave() {
 		if (isset($this->data[$this->alias]['password'])) {
 		    $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
@@ -14,7 +13,6 @@ class User extends AppModel {
 		return true;
 	}
 
-	// Custom validation method for password = password_confirm
 	public function matchPasswords($data) {
 		if($this->data['User']['password'] == $this->data['User']['password_confirm']) {
 			return true;
