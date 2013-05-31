@@ -40,18 +40,21 @@ $cakeDescription = 'Ben\'s FizzBuzz';
 		<div id="header">
 			<h1>
 				<?php echo $cakeDescription ?>
-				
-				<?
-				if($this->Session->read('Auth')) {
-					echo ' | '.$this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'));
-				}
-				?>
 			</h1>
 		</div>
 		<div id="content">
+			<? // This shows the login/logout link for the user depending on if they have logged in or not // ?>
+			<div style="text-align:right">
+				<? if($logged_in){ ?>	
+					<? echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?>
+				<? } else { ?>
+					<? echo $this->Html->link('Login', array('controller' => 'users', 'action' => 'login')); ?>
+				<? } ?>
+			</div>
 
+			<!-- Make sure auth messages are displayed -->
+			<?php echo $this->Session->flash('auth'); ?>
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 	</div>
