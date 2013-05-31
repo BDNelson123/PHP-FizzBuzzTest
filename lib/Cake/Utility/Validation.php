@@ -95,6 +95,50 @@ class Validation {
 	}
 
 /**
+ * Checks that a string contains only letters
+ *
+ * Returns true if string contains only letters
+ *
+ * $check can be passed as an array:
+ * array('check' => 'valueToCheck');
+ *
+ * @param string|array $check Value to check
+ * @return boolean Success
+ */
+	public static function alpha($check) {
+		if (is_array($check)) {
+			extract(self::_defaults($check));
+		}
+
+		if (empty($check) && $check != '0') {
+			return false;
+		}
+		return self::_check($check, '/^[a-zA-Z]*$/i');
+	}
+
+/**
+ * Checks that a string contains one upper-case letter, one lower-case letter, and one number
+ *
+ * Returns true if string contains only letters
+ *
+ * $check can be passed as an array:
+ * array('check' => 'valueToCheck');
+ *
+ * @param string|array $check Value to check
+ * @return boolean Success
+ */
+	public static function upperLowerLetter($check) {
+		if (is_array($check)) {
+			extract(self::_defaults($check));
+		}
+
+		if (empty($check) && $check != '0') {
+			return false;
+		}
+		return self::_check($check, '/^[a-zA-Z0-9]*$/i');
+	}
+
+/**
  * Checks that a string length is within s specified range.
  * Spaces are included in the character count.
  * Returns true is string matches value min, max, or between min and max,
