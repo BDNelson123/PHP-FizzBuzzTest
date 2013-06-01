@@ -37,7 +37,7 @@ class FizzbuzzsController extends AppController {
 		$this->redirect(array('controller' => 'Fizzbuzzs', 'action' => 'test', $id, 'incorrect', $number, $answer));
 	}
 
-	public function test($_id,$_number,$_answer) {
+	public function test() {
 		// This should be done with a constructor but CakePHP seems to not like __constructor in a controller
 		$_id = $this->data['fizzbuzz']['id'];
 		$_number = $this->data['fizzbuzz']['number'];
