@@ -6,16 +6,16 @@ class FizzbuzzsController extends AppController {
 
 	var $uses = array();
 
-	private $current_user;
-
 	public function beforeFilter() {
-	    parent::beforeFilter();
-	    $this->Auth->allow('test');
+	    	parent::beforeFilter();
+	   	$this->Auth->allow('test');
 	}
 
 	public function isAuthorized($user) {
 		return true;
 	}
+
+	private $_id, $_number, $_answer;
 
 	private function _answer($number,$answer) {
 		if($number % 3 == 0 && $number % 5 == 0) {
@@ -39,12 +39,17 @@ class FizzbuzzsController extends AppController {
 		$this->redirect(array('controller' => 'Fizzbuzzs', 'action' => 'test', $id, 'incorrect', $number, $answer));
 	}
 
-	public function test() {
+	public function test($_id,$_number,$_answer) {
+		// This should be done with a constructor but CakePHP seems to not like __constructor in a controller
+		$_id = $this->data['fizzbuzz']['id'];
+		$_number = $this->data['fizzbuzz']['number'];
+		$_answer = $this->data['fizzbuzz']['answer'];
+
 		if($_POST){
-			if($this->_answer($this->data['fizzbuzz']['number'],$this->data['fizzbuzz']['answer']) == true) {
-				$this->_correct($this->data['fizzbuzz']['id'],$this->data['fizzbuzz']['number']);
+			if($this->_answer($_number,$_answer) == true) {
+				$this->_correct($_id,$_number);
 			} else {
-				$this->_incorrect($this->data['fizzbuzz']['id'],$this->data['fizzbuzz']['number'],$this->data['fizzbuzz']['answer']);
+				$this->_incorrect($_id,$_number,$_answer);
 			}
 		}
 	}
