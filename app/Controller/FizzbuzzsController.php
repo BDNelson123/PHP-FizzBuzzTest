@@ -15,8 +15,6 @@ class FizzbuzzsController extends AppController {
 		return true;
 	}
 
-	private $_id, $_number, $_answer;
-
 	private function _answer($number,$answer) {
 		if($number % 3 == 0 && $number % 5 == 0) {
 			$correct = 'FizzBuzz';
