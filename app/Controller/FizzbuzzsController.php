@@ -39,15 +39,15 @@ class FizzbuzzsController extends AppController {
 
 	public function test() {
 		// This should be done with a constructor but CakePHP seems to not like __constructor in a controller
-		$_id = $this->data['fizzbuzz']['id'];
-		$_number = $this->data['fizzbuzz']['number'];
-		$_answer = $this->data['fizzbuzz']['answer'];
+		$id = $this->data['fizzbuzz']['id'];
+		$number = $this->data['fizzbuzz']['number'];
+		$answer = $this->data['fizzbuzz']['answer'];
 
 		if($_POST){
-			if($this->_answer($_number,$_answer) == true) {
-				$this->_correct($_id,$_number);
+			if($this->_answer($number,$answer) == true) {
+				$this->_correct($id,$number);
 			} else {
-				$this->_incorrect($_id,$_number,$_answer);
+				$this->_incorrect($id,$number,$answer);
 			}
 		}
 	}
