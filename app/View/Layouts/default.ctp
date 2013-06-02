@@ -46,6 +46,8 @@ $cakeDescription = 'Ben\'s FizzBuzz';
 			<? // This shows the login/logout link for the user depending on if they have logged in or not // ?>
 			<div style="text-align:right">
 				<? if($logged_in){ ?>	
+					<? echo $this->Html->link('Home', array('controller' => 'users', 'action' => 'view', $current_user['id'])) ?>
+					|
 					<? echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?>
 				<? } else { ?>
 					<? echo $this->Html->link('Login', array('controller' => 'users', 'action' => 'login')); ?>
