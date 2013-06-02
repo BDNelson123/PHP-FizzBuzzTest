@@ -6,11 +6,10 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 	    parent::beforeFilter();
-		$this->_checkuser();
 	}
 
 	public function isAuthorized($user) {
-		$this->Auth->allow('add');
+		$this->Auth->allow();
 	}
 
 	public function add() {
@@ -37,10 +36,13 @@ class UsersController extends AppController {
 	}
 
 	public function logout() {
+		$this->Session->setFlash(_('You have successfully logged out'));
 		$this->redirect($this->Auth->logout());
 	}
 
 	public function view($id=null) {
+		$this->_checkuser();
+
 		$this->User->id = $id;
 	
 		if (!$this->User->exists()) {

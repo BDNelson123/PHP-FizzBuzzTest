@@ -11,7 +11,7 @@ class FizzbuzzsController extends AppController {
 	}
 
 	public function isAuthorized($user) {
-	   	$this->Auth->allow('test');
+	   	$this->Auth->allow();
 	}
 
 	private function _answer($number,$answer) {

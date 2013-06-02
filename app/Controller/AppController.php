@@ -12,7 +12,6 @@ class AppController extends Controller {
 				    'fields' => array('username' => 'email')
 				)
 			    ),
-			'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
 			'authError' => "You can't access that page",
 			'authorize' => array('Controller')
 		)
