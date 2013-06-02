@@ -26,8 +26,7 @@ class AppController extends Controller {
 
 	protected function _checkUser() {
 		if($this->params["pass"]["0"] != $this->Auth->user('id')) {
-			$this->Session->setFlash(_('You can\'t access that page.'));
-			$this->redirect($this->Auth->logout());
+			$this->redirect(array('controller' => 'Users', 'action' => 'view', $this->Auth->user('id')));
 		}
 	}
 
