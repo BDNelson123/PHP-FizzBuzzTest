@@ -6,10 +6,11 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 	    parent::beforeFilter();
+		$this->_checkuser();
 	}
 
 	public function isAuthorized($user) {
-		return true;
+		$this->Auth->allow('add');
 	}
 
 	public function add() {

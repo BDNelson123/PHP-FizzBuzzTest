@@ -7,12 +7,11 @@ class FizzbuzzsController extends AppController {
 	var $uses = array();
 
 	public function beforeFilter() {
-	    	parent::beforeFilter();
-	   	$this->Auth->allow('test');
+    	parent::beforeFilter();
 	}
 
 	public function isAuthorized($user) {
-		return true;
+	   	$this->Auth->allow('test');
 	}
 
 	private function _answer($number,$answer) {
@@ -38,8 +37,7 @@ class FizzbuzzsController extends AppController {
 	}
 
 	public function test() {
-		// This should be done with a constructor but CakePHP seems to not like __constructor in a controller
-		$id = $this->data['fizzbuzz']['id'];
+		$id = $this->Auth->user('id');
 		$number = $this->data['fizzbuzz']['number'];
 		$answer = $this->data['fizzbuzz']['answer'];
 
