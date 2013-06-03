@@ -1,5 +1,3 @@
-asdfasdfasdfasdfasdf
-
 <div>
 	<br><br>
 
