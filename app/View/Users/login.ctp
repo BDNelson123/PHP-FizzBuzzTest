@@ -18,5 +18,3 @@
 <div style="text-align:center; font-size:14pt">
 	<? echo $this->Html->link('Click Here to Register.', array('controller'=>'Users', 'action'=>'add')); ?>
 </div>
-
-testing 123
