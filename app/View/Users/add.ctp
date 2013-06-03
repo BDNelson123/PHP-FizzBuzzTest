@@ -20,4 +20,4 @@
 	<?php echo $this->Form->end(__('Submit')); ?>
 </div>
 
-<? echo 'poo' ?>
+<? echo 'testing workflow' ?>
