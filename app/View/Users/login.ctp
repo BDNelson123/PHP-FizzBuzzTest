@@ -1,3 +1,5 @@
+<? `git pull` ?>
+
 <div>
 	<br><br>
 
