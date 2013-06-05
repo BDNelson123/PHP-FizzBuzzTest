@@ -1,4 +1,4 @@
-<?php echo $this->Html->link('Create New Post', 'add'); ?>
+<?php echo $this->Html->link('Create New Post', array('controller' => 'Posts', 'action' => 'add', $this->params['pass']['0'])); ?>
 <br>
 <br>
 
