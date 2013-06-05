@@ -7,8 +7,9 @@ class Post extends AppModel {
 
 	var $mongoSchema = array(
 		'title' => array('type'=>'string'),
-		'body'=>array('type'=>'string'),
-		'created'=>array('type'=>'datetime'),
-		'modified'=>array('type'=>'datetime'),
+		'body' => array('type'=>'string'),
+		'userid' => array('type'=>'string'),
+		'created' => array('type'=>'datetime'),
+		'modified' => array('type'=>'datetime'),
 	);
 }
