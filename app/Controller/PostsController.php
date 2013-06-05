@@ -28,7 +28,7 @@ class PostsController extends AppController {
 	}
 
 	public function add() {
-		$this->_checkUser('1');
+		$this->_checkUser();
 
 		if (!empty($this->data)) {
 
