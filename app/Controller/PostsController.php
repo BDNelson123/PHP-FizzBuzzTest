@@ -15,16 +15,11 @@ class PostsController extends AppController {
 	public function index() {
 		$params = array(
 			'fields' => array('title', 'body', 'userid'),
-			//'fields' => array('Post.title', ),
-			//'conditions' => array('title' => 'hehe'),
-			//'conditions' => array('hoge' => array('$gt' => '10', '$lt' => '34')),
-			//'order' => array('title' => 1, 'body' => 1),
 			'order' => array('_id' => -1),
 			'limit' => 35,
 			'page' => 1,
 		);
 		$results = $this->Post->find('all', $params);
-		//$result = $this->Post->find('count', $params);
 		$this->set(compact('results'));
 	}
 
@@ -53,7 +48,6 @@ class PostsController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Post->read(null, $id);
-			//$this->data = $this->Post->find('first', array('conditions' => array('_id' => $id)));
 		}
 	}
 
@@ -62,7 +56,8 @@ class PostsController extends AppController {
 			$this->flash(__('Invalid Post', true), array('action' => 'index'));
 		}
 		if ($this->Post->delete($id)) {
-			$this->flash(__('Post deleted', true), array('action' => 'index'));
+			$this->Session->setFlash(_('You have successfully deleted a post.'));
+			$this->redirect(array('controller' => 'Posts', 'action' => 'index', $this->Auth->user('id')));
 		} else {
 			$this->flash(__('Post deleted Fail', true), array('action' => 'index'));
 		}
