@@ -19,6 +19,7 @@ class PostsController extends AppController {
 
 		$params = array(
 			'fields' => array('title', 'body', 'userid'),
+			'conditions' => array('userid' => $this->Auth->user('id')),
 			'order' => array('_id' => -1),
 			'limit' => 35,
 			'page' => 1,
@@ -31,7 +32,6 @@ class PostsController extends AppController {
 		$this->_checkUser();
 
 		if (!empty($this->data)) {
-
 			$this->Post->create();
 			if ($this->Post->save($this->data)) {
 				$this->Session->setFlash(_('You have successfully created a new post.'));
