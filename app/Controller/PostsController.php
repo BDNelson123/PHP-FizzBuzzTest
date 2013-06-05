@@ -2,6 +2,8 @@
 
 class PostsController extends AppController {
 
+	var $users = array();
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 	}
@@ -13,6 +15,8 @@ class PostsController extends AppController {
 	public $name = 'Posts';
 
 	public function index() {
+		$this->_checkUser();
+
 		$params = array(
 			'fields' => array('title', 'body', 'userid'),
 			'order' => array('_id' => -1),
@@ -24,6 +28,8 @@ class PostsController extends AppController {
 	}
 
 	public function add() {
+		$this->_checkUser('1');
+
 		if (!empty($this->data)) {
 
 			$this->Post->create();
@@ -36,6 +42,8 @@ class PostsController extends AppController {
 	}
 
 	public function edit($id = null) {
+		$this->_checkUser('1');
+
 		if (!$id && empty($this->data)) {
 			$this->flash(__('Invalid Post', true), array('action' => 'index'));
 		}

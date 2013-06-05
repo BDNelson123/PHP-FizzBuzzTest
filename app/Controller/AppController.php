@@ -23,8 +23,8 @@ class AppController extends Controller {
 		$this->set('current_user', $this->Auth->user());
 	}
 
-	protected function _checkUser() {
-		if($this->params["pass"]["0"] != $this->Auth->user('id')) {
+	protected function _checkUser($number = 0) {
+		if($this->params["pass"]["$number"] != $this->Auth->user('id')) {
 			$this->redirect(array('controller' => 'Users', 'action' => 'view', $this->Auth->user('id')));
 		}
 	}
