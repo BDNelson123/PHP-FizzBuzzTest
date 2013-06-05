@@ -16,22 +16,22 @@ class UsersController extends AppController {
 	    if ($this->request->is('post')) {
 	        $this->User->create();
 	        if ($this->User->save($this->request->data)) {
-				$this->Auth->login();
-	            $this->Session->setFlash(__('You have successfully registered'));
-	            $this->redirect(array('controller' => 'Users', 'action' => 'view', $this->User->id));
+			$this->Auth->login();
+	            	$this->Session->setFlash(__('You have successfully registered'));
+	            	$this->redirect(array('controller' => 'Users', 'action' => 'view', $this->User->id));
 	        } else {
-	            $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+	            	$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 	        }
 	    }
 	}
 
 	public function login() {
 		if ($this->request->is('post')) {
-		    if ($this->Auth->login()) {
-	            $this->redirect(array('controller' => 'Users', 'action' => 'view', $this->Auth->user('id')));
-		    } else {
-		        $this->Session->setFlash(__('Invalid email or password, try again'));
-		    }
+		   	if ($this->Auth->login()) {
+	           		$this->redirect(array('controller' => 'Users', 'action' => 'view', $this->Auth->user('id')));
+		    	} else {
+		       		$this->Session->setFlash(__('Invalid email or password, try again'));
+		    	}
 		}
 	}
 

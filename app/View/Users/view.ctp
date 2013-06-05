@@ -9,7 +9,8 @@
 <br><br>
 
 <div style="text-align:center; font-size:14pt">
-<? echo $this->Html->link('Begin FizzBuzz Test', array('controller'=>'Fizzbuzzs', 'action'=>'test', $user['User']['id'], '1')); ?>
+<? echo $this->Html->link('Begin FizzBuzz Test', array('controller'=>'Fizzbuzzs', 'action'=>'test', $user['User']['id'], '1')); ?> | 
+<? echo $this->Html->link('View Your MongoDB  Blog', array('controller' => 'Posts', 'action' => 'index', $user['User']['id'])); ?> 
 </div>
 
 

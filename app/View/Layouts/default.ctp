@@ -48,6 +48,10 @@ $cakeDescription = 'Ben\'s FizzBuzz';
 				<? if($logged_in){ ?>	
 					<? echo $this->Html->link('Home', array('controller' => 'Users', 'action' => 'view', $current_user['id'])) ?>
 					|
+					<? echo $this->Html->link('FizzBuzz Test', array('controller' => 'Fizzbuzzs', 'action' => 'test', $current_user['id'], '1')) ?>
+					|
+					<? echo $this->Html->link('MongoDB Blog', array('controller' => 'Posts', 'action' => 'index', $current_user['id'])) ?>
+					|
 					<? echo $this->Html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?>
 				<? } else { ?>
 					<? echo $this->Html->link('Login', array('controller' => 'Users', 'action' => 'login')); ?>
